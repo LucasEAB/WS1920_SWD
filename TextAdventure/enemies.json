@@ -1,0 +1,28 @@
+[
+    {
+        "Name": "Julian",
+        "Total": "100",
+        "Position": "",
+        "PlayerItems": [
+            {
+                "Name": "Kartoffel"
+            },
+            {
+                "Name": "Snitch"
+            }
+        ]
+    },
+    {
+        "Name": "Berdan",
+        "Total": "100",
+        "Position": "",
+        "PlayerItems":[
+            {
+                "Name": "Stinker"
+            },
+            {
+                "Name": "Pups"
+            }
+        ]
+    }
+]
