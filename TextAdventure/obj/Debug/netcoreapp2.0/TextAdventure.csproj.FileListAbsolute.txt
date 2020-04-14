@@ -21,3 +21,15 @@ C:/Users/fleig/Documents/Uni/4.Semester/Softwaredesign/TextAdventure/obj/Debug/n
 /Users/lucasbraun/Desktop/TextAdventure/obj/Debug/netcoreapp2.0/TextAdventure.dll
 /Users/lucasbraun/Desktop/TextAdventure/obj/Debug/netcoreapp2.0/TextAdventure.pdb
 /Users/lucasbraun/Desktop/TextAdventure/obj/Debug/netcoreapp2.0/TextAdventure.genruntimeconfig.cache
+/Users/lucasbraun/Documents/GitHub/WS1920_SWD/TextAdventure/bin/Debug/netcoreapp2.0/TextAdventure.deps.json
+/Users/lucasbraun/Documents/GitHub/WS1920_SWD/TextAdventure/bin/Debug/netcoreapp2.0/TextAdventure.runtimeconfig.json
+/Users/lucasbraun/Documents/GitHub/WS1920_SWD/TextAdventure/bin/Debug/netcoreapp2.0/TextAdventure.runtimeconfig.dev.json
+/Users/lucasbraun/Documents/GitHub/WS1920_SWD/TextAdventure/bin/Debug/netcoreapp2.0/TextAdventure.dll
+/Users/lucasbraun/Documents/GitHub/WS1920_SWD/TextAdventure/bin/Debug/netcoreapp2.0/TextAdventure.pdb
+/Users/lucasbraun/Documents/GitHub/WS1920_SWD/TextAdventure/obj/Debug/netcoreapp2.0/TextAdventure.csprojAssemblyReference.cache
+/Users/lucasbraun/Documents/GitHub/WS1920_SWD/TextAdventure/obj/Debug/netcoreapp2.0/TextAdventure.csproj.CoreCompileInputs.cache
+/Users/lucasbraun/Documents/GitHub/WS1920_SWD/TextAdventure/obj/Debug/netcoreapp2.0/TextAdventure.AssemblyInfoInputs.cache
+/Users/lucasbraun/Documents/GitHub/WS1920_SWD/TextAdventure/obj/Debug/netcoreapp2.0/TextAdventure.AssemblyInfo.cs
+/Users/lucasbraun/Documents/GitHub/WS1920_SWD/TextAdventure/obj/Debug/netcoreapp2.0/TextAdventure.dll
+/Users/lucasbraun/Documents/GitHub/WS1920_SWD/TextAdventure/obj/Debug/netcoreapp2.0/TextAdventure.pdb
+/Users/lucasbraun/Documents/GitHub/WS1920_SWD/TextAdventure/obj/Debug/netcoreapp2.0/TextAdventure.genruntimeconfig.cache

@@ -6,7 +6,7 @@ namespace TextAdventure
 {
     public class Player : Characters
     {    
-        public Player(string _name,Room _position) : base(_name,_position)
+        public Player(string _name, Room _position) : base(_name, _position)
         {       
         }
 

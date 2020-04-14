@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "f77V5uOcfRmtH4VMc+FF6Ru63NKNwh3c05quv1U5rFlkjFTukE/B1w6faSW509V4cUDs3AU6IdDpePqRMSGxgQ==",
+  "dgSpecHash": "Mw8Uyc8qD16tybIKSuTIB2JnCG42xzTiTDUwr/oc1hC0Pj3EsS0vKLWE0GDdDfAK+lwbDwzzJuA6+bdtdyYGTg==",
   "success": true,
-  "projectFilePath": "/Users/lucasbraun/Desktop/TextAdventure/TextAdventure.csproj",
+  "projectFilePath": "/Users/lucasbraun/Documents/GitHub/WS1920_SWD/TextAdventure/TextAdventure.csproj",
   "expectedPackageFiles": [
     "/Users/lucasbraun/.nuget/packages/microsoft.netcore.app/2.0.0/microsoft.netcore.app.2.0.0.nupkg.sha512",
     "/Users/lucasbraun/.nuget/packages/microsoft.netcore.dotnetapphost/2.0.0/microsoft.netcore.dotnetapphost.2.0.0.nupkg.sha512",

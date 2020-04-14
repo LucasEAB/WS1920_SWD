@@ -15,7 +15,7 @@ namespace TextAdventure
         {
             Position = _position;
             Name = _name;
-            //Position.Entry(this);                  
+            Position.Entry(this);                  
         }
        
         public void Inventory()

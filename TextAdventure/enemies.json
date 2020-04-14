@@ -1,27 +1,25 @@
 [
     {
-        "Name": "Julian",
-        "Total": "100",
+        "Name": "Ju",
         "Position": "",
         "PlayerItems": [
             {
                 "Name": "Kartoffel"
             },
             {
-                "Name": "Snitch"
+                "Name": "schlagstock"
             }
         ]
     },
     {
-        "Name": "Berdan",
-        "Total": "100",
+        "Name": "Berdo",
         "Position": "",
         "PlayerItems":[
             {
-                "Name": "Stinker"
+                "Name": "pistole"
             },
             {
-                "Name": "Pups"
+                "Name": "granate"
             }
         ]
     }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/lucasbraun/Desktop/TextAdventure/TextAdventure.csproj": {}
+    "/Users/lucasbraun/Documents/GitHub/WS1920_SWD/TextAdventure/TextAdventure.csproj": {}
   },
   "projects": {
-    "/Users/lucasbraun/Desktop/TextAdventure/TextAdventure.csproj": {
+    "/Users/lucasbraun/Documents/GitHub/WS1920_SWD/TextAdventure/TextAdventure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/lucasbraun/Desktop/TextAdventure/TextAdventure.csproj",
+        "projectUniqueName": "/Users/lucasbraun/Documents/GitHub/WS1920_SWD/TextAdventure/TextAdventure.csproj",
         "projectName": "TextAdventure",
-        "projectPath": "/Users/lucasbraun/Desktop/TextAdventure/TextAdventure.csproj",
+        "projectPath": "/Users/lucasbraun/Documents/GitHub/WS1920_SWD/TextAdventure/TextAdventure.csproj",
         "packagesPath": "/Users/lucasbraun/.nuget/packages/",
-        "outputPath": "/Users/lucasbraun/Desktop/TextAdventure/obj/",
+        "outputPath": "/Users/lucasbraun/Documents/GitHub/WS1920_SWD/TextAdventure/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

@@ -16,8 +16,8 @@ namespace TextAdventure
         //public Enemy E2;
 
         public static List<Enemy> enemies = new List<Enemy>();
-        //public static List<Item> playerItems = new List<Item>();
-        //public static List<Enemy> _enemies = new List<Enemy>();
+
+        public static List<Enemy> _enemies = new List<Enemy>();
 
 
         public void BuildGame()
@@ -109,13 +109,10 @@ namespace TextAdventure
             Player = new Player("Spieler", Rooms[RandomRoom()]);
 
 
-
             var data = File.ReadAllText("enemies.json");
 
+            enemies = JsonConvert.DeserializeObject<List<Enemy>>(data); // !!!! hier kann er enemies nicht als typ Enemy im Constructor erzeugen
 
-
-
-            enemies = JsonConvert.DeserializeObject<List<Enemy>>(data);
 
             foreach (Enemy enemy in enemies)
             {
@@ -125,6 +122,7 @@ namespace TextAdventure
                 {
                     _enemy.PlayerItems.Add(new Item { Name = item.Name });
                 }
+                _enemies.Add( _enemy );
             }
 
 
@@ -194,25 +192,25 @@ namespace TextAdventure
                     {
                         case 0:
 
-                            foreach (Enemy enemy in enemies)
+                            foreach (Enemy enemy in _enemies)
                             {
                                 enemy.Move("n");
                             }
                             break;
                         case 1:
-                            foreach (Enemy enemy in enemies)
+                            foreach (Enemy enemy in _enemies)
                             {
                                 enemy.Move("n");
                             }
                             break;
                         case 2:
-                            foreach (Enemy enemy in enemies)
+                            foreach (Enemy enemy in _enemies)
                             {
                                 enemy.Move("n");
                             }
                             break;
                         case 3:
-                            foreach (Enemy enemy in enemies)
+                            foreach (Enemy enemy in _enemies)
                             {
                                 enemy.Move("n");
                             }
@@ -296,7 +294,7 @@ namespace TextAdventure
                 p.Position.Look();
                 if (_enemy != null)
                 {
-                    Console.WriteLine("Sie sind in einer/einem " + _enemy.Name + ", wo Sie auf einen Gegner treffen. Dein Gegner hat ein Kontostand von " + _enemy.Total + " Euro. Wollen Sie gegen ihn mit <a> spielen um ein Item von ihm zu gewinnen? Seine Items:");
+                    Console.WriteLine("Sie treffen auf " + _enemy.Name + " der Items hat die Sie eventuell gebrauchen könnten. Dein Gegner hat ein Kontostand von " + _enemy.Total + " Euro. Wollen Sie gegen ihn mit <a> spielen um ein Item von ihm zu gewinnen? Seine Items:");
                     if (p.Position.GetEnemy().PlayerItems.Count != 0)
                     {
                         for (int i = 0; i < p.Position.GetEnemy().PlayerItems.Count; i++)

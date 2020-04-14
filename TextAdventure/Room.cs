@@ -62,7 +62,7 @@ namespace TextAdventure
 
         public void Look()
         {
-            Console.WriteLine("Hier liegen " +RoomItems.Count +" Items. Geben Sie take(t) ein und anschließend den Namen des Items, um eins in Ihr Inventar einzufügen.");
+            Console.WriteLine("Hier liegen " + RoomItems.Count +" Items. Geben Sie take(t) ein und anschließend den Namen des Items, um eins in Ihr Inventar einzufügen.");
             Console.WriteLine("Hier liegen folgende Items: ");
 
             for(int i=0; i<RoomItems.Count; i++)
