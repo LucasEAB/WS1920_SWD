@@ -12,13 +12,10 @@ namespace TextAdventure
     {
         public Player Player;
         public List<Room> Rooms = new List<Room>();
-        //public Enemy E1;
-        //public Enemy E2;
 
-        public static List<Enemy> enemies = new List<Enemy>();
+        public static List<Enemy> enemieshelp = new List<Enemy>();
 
-        public static List<Enemy> _enemies = new List<Enemy>();
-
+        public List<Enemy> Enemies = new List<Enemy>();
 
         public void BuildGame()
         {
@@ -110,11 +107,9 @@ namespace TextAdventure
 
 
             var data = File.ReadAllText("enemies.json");
+            enemieshelp = JsonConvert.DeserializeObject<List<Enemy>>(data); // !!!! hier kann er enemies nicht als typ Enemy im Constructor erzeugen
 
-            enemies = JsonConvert.DeserializeObject<List<Enemy>>(data); // !!!! hier kann er enemies nicht als typ Enemy im Constructor erzeugen
-
-
-            foreach (Enemy enemy in enemies)
+            foreach (Enemy enemy in enemieshelp)
             {
                 Enemy _enemy = new Enemy(enemy.Name, Rooms[RandomRoom()]);
 
@@ -122,17 +117,10 @@ namespace TextAdventure
                 {
                     _enemy.PlayerItems.Add(new Item { Name = item.Name });
                 }
-                _enemies.Add( _enemy );
+                Enemies.Add(_enemy);
             }
-
-
-
-
-            /*  E2 = new Enemy("Casino", Rooms[RandomRoom()]);
-             E2.PlayerItems.Add(new Item { Name = "Brille" });
-             E2.PlayerItems.Add(new Item { Name = "Handy" }); */
-
         }
+
 
         int RandomRoom()
         {
@@ -147,37 +135,16 @@ namespace TextAdventure
             int _random = _randomNumber.Next(0, 4);
             return _random;
         }
+
         static DataTable GetTable()
         {
-            //DataTable _table = new DataTable();
-
-            //Define columns
-            /*_table.Columns.Add("Name", typeof(string));
-            _table.Columns.Add("North", typeof(string));
-            _table.Columns.Add("South", typeof(string));
-            _table.Columns.Add("East", typeof(string));
-            _table.Columns.Add("West", typeof(string));
-            _table.Columns.Add("Item1", typeof(string));
-            _table.Columns.Add("Item2", typeof(string));
-
-
-            //Define rows
-            _table.Rows.Add("Deutschland", "","Italien","Russland","Frankreich","Bier","Brezel");
-            _table.Rows.Add("Frankreich", "","Spanien","Deutschland","","Baguette","Wein");
-            _table.Rows.Add("Russland", "","","","Deutschland","Wodka","Matrjoschka");
-            _table.Rows.Add("Italien", "Deutschland","","","Spanien","Pizza","Espresso");
-            _table.Rows.Add("Spanien", "Frankreich","","Italien","","Cerveza","Tapas");*/
-
             using (StreamReader r = new StreamReader("rooms.json"))
             {
                 string json = r.ReadToEnd();
                 DataTable _table = (DataTable)JsonConvert.DeserializeObject(json, (typeof(DataTable)));
 
                 return _table;
-
-
             }
-
         }
 
         public void Play()
@@ -191,28 +158,28 @@ namespace TextAdventure
                     switch (_x)
                     {
                         case 0:
-
-                            foreach (Enemy enemy in _enemies)
+                            foreach (Enemy enemy in Enemies)
                             {
+                                //darf es nur ausführen wenn RoomPlayers Enemy enthält
                                 enemy.Move("n");
                             }
                             break;
                         case 1:
-                            foreach (Enemy enemy in _enemies)
+                            foreach (Enemy enemy in Enemies)
                             {
-                                enemy.Move("n");
+                                enemy.Move("s");
                             }
                             break;
                         case 2:
-                            foreach (Enemy enemy in _enemies)
+                            foreach (Enemy enemy in Enemies)
                             {
-                                enemy.Move("n");
+                                enemy.Move("e");
                             }
                             break;
                         case 3:
-                            foreach (Enemy enemy in _enemies)
+                            foreach (Enemy enemy in Enemies)
                             {
-                                enemy.Move("n");
+                                enemy.Move("w");
                             }
                             break;
                     }
@@ -275,7 +242,7 @@ namespace TextAdventure
                     Console.WriteLine("Sie haben verloren");
                     break;
                 }
-                foreach (Enemy enemy in enemies)
+                foreach (Enemy enemy in enemieshelp)
                 {
                     if (enemy.Total <= 0 && enemy.Total <= 0)
                     {

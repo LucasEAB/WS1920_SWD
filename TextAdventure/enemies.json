@@ -1,7 +1,11 @@
 [
     {
         "Name": "Ju",
-        "Position": "",
+        "Position": 
+            {
+                "Name": "Deutschland"
+            }
+        ,
         "PlayerItems": [
             {
                 "Name": "Kartoffel"
@@ -13,7 +17,11 @@
     },
     {
         "Name": "Berdo",
-        "Position": "",
+        "Position": 
+            {
+                "Name": "Italien"
+            }
+        ,
         "PlayerItems":[
             {
                 "Name": "pistole"

@@ -4,9 +4,9 @@ using System.Data;
 
 namespace TextAdventure
 {
-    public class Player : Characters
+    public class Player : Character
     {    
-        public Player(string _name, Room _position) : base(_name, _position)
+        public Player(string _name,Room _position) : base(_name,_position)
         {       
         }
 
