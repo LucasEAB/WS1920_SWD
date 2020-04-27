@@ -6,33 +6,47 @@ namespace TextAdventure
 {
     public class Room
     {
-        public List<Item> RoomItems = new List<Item>();
-        public List<Character> RoomPlayers = new List<Character>();
+        public List<Item> Items = new List<Item>();
+        public List<Character> Characters = new List<Character>();
         public string Name;
         public Room North;
         public Room South;
         public Room West;
         public Room East;
+        public Boolean Occupied = false;
+
 
         public void Exit(Character character)
         {
-            RoomPlayers.Remove(character);
+            Characters.Remove(character);
         }
 
         public void Entry(Character character)
         {
-            RoomPlayers.Add(character);
+            Characters.Add(character);
+        }
+
+        public Boolean EnemyInRoom()
+        {
+            for (int i = 0; i < Characters.Count; i++)
+            {
+                if (Characters[i].GetType() == typeof(Enemy))
+                {
+                    return Occupied = true;
+                }
+            }
+            return Occupied = false;
         }
 
         public Enemy GetEnemy() // get data from enemy 
         {
-            for (int i = 0; i < RoomPlayers.Count; i++)
+            for (int i = 0; i < Characters.Count; i++)
             {
-                if (RoomPlayers[i].GetType() == typeof(Enemy))
+                if (Characters[i].GetType() == typeof(Enemy))
                 {
-                    if (RoomPlayers[i].Total > 0)
+                    if (Characters[i].Total > 0)
                     {
-                        return (Enemy)RoomPlayers[i];
+                        return (Enemy)Characters[i];
                     }
                 }
             }
@@ -42,12 +56,12 @@ namespace TextAdventure
         public Item Take(string item)
         {
             Item _take = null;
-            for (int i = 0; i < RoomItems.Count; i++)
+            for (int i = 0; i < Items.Count; i++)
             {
-                if (RoomItems[i].Name == item)
+                if (Items[i].Name == item)
                 {
-                    _take = RoomItems[i];
-                    RoomItems.Remove(RoomItems[i]);
+                    _take = Items[i];
+                    Items.Remove(Items[i]);
                     Console.WriteLine("Sie haben " + item + " erfolgreich hinzugefügt.");
                 }
             }
@@ -56,18 +70,18 @@ namespace TextAdventure
 
         public void Drop(Item item)
         {
-            RoomItems.Add(item);
+            Items.Add(item);
             Console.WriteLine("Sie haben " + item.Name + " erfolgreich abgelegt.");
         }
 
         public void Look()
         {
-            Console.WriteLine("Hier liegen " + RoomItems.Count + " Items. Geben Sie take(t) ein und anschließend den Namen des Items, um eins in Ihr Inventar einzufügen.");
+            Console.WriteLine("Hier liegen " + Items.Count + " Items. Geben Sie take(t) ein und anschließend den Namen des Items, um eins in Ihr Inventar einzufügen.");
             Console.WriteLine("Hier liegen folgende Items: ");
 
-            for (int i = 0; i < RoomItems.Count; i++)
+            for (int i = 0; i < Items.Count; i++)
             {
-                Console.WriteLine(RoomItems[i].Name);
+                Console.WriteLine(Items[i].Name);
             }
         }
     }

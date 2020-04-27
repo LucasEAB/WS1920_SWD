@@ -56,6 +56,8 @@ namespace TextAdventure
         {
             Room _newRoom;
             Room _oldRoom = Position;
+            Boolean Occupied = false;
+
             switch (input)
             {
                 case "n":
@@ -86,17 +88,29 @@ namespace TextAdventure
             }
             else
             {
-                if (_newRoom != Position)
+                try
+                {
+                    Occupied = _newRoom.EnemyInRoom();
+                }
+                catch
+                {
+                    Occupied = false;
+                }
+
+                if (this.GetType() == typeof(Player) && _newRoom != Position)
                 {
                     Position = _newRoom;
                     _oldRoom.Exit(this);
-                    //if (this.GetType() == typeof(Player))
-                    //{
-                        Console.WriteLine(this.Name + ": ging von " + _oldRoom.Name + " nach " + _newRoom.Name);
-                    //}
                     _newRoom.Entry(this);
+                    Console.WriteLine(this.Name + ": ging von " + _oldRoom.Name + " nach " + _newRoom.Name);
                 }
 
+                if (this.GetType() == typeof(Enemy) && _newRoom != Position && Occupied != true)
+                {
+                    Position = _newRoom;
+                    _oldRoom.Exit(this);
+                    _newRoom.Entry(this);
+                }
             }
         }
     }

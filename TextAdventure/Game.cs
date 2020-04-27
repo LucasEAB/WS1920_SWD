@@ -16,6 +16,7 @@ namespace TextAdventure
         public static List<Enemy> enemieshelp = new List<Enemy>();
 
         public List<Enemy> Enemies = new List<Enemy>();
+        
 
         public void BuildGame()
         {
@@ -92,12 +93,12 @@ namespace TextAdventure
                 string _item1 = _row["Item1"].ToString();
                 if (_item1 != "")
                 {
-                    Rooms[ir].RoomItems.Add(new Item { Name = _item1 });
+                    Rooms[ir].Items.Add(new Item { Name = _item1 });
                 }
                 string item2 = _row["Item2"].ToString();
                 if (item2 != "")
                 {
-                    Rooms[ir].RoomItems.Add(new Item { Name = item2 });
+                    Rooms[ir].Items.Add(new Item { Name = item2 });
                 }
                 ir++;
             }
@@ -150,38 +151,17 @@ namespace TextAdventure
         public void Play()
         {
             string _input = "";
+            string[] _directions = { "n", "s", "e", "w" };
+            string _randomDirection = "";
             while (_input != "q")
             {
                 if (_input == "n" || _input == "s" || _input == "e" || _input == "w")
                 {
-                    int _x = RandomRoom();
-                    switch (_x)
+                    foreach (Enemy Enemy in Enemies)
                     {
-                        case 0:
-                            foreach (Enemy enemy in Enemies)
-                            {
-                                //darf es nur ausführen wenn RoomPlayers Enemy enthält
-                                enemy.Move("n");
-                            }
-                            break;
-                        case 1:
-                            foreach (Enemy enemy in Enemies)
-                            {
-                                enemy.Move("s");
-                            }
-                            break;
-                        case 2:
-                            foreach (Enemy enemy in Enemies)
-                            {
-                                enemy.Move("e");
-                            }
-                            break;
-                        case 3:
-                            foreach (Enemy enemy in Enemies)
-                            {
-                                enemy.Move("w");
-                            }
-                            break;
+                        int _x = RandomMove();
+                        _randomDirection = _directions[_x];
+                        Enemy.Move(_randomDirection);          
                     }
                 }
 
