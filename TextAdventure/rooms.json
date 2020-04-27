@@ -1,5 +1,6 @@
 [
-    {"Name":"Deutschland","North":"","South":"Italien","East":"Russland","West":"Frankreich","Item1":"Bier","Item2":"Brezel"},
+    {"Name":"Daenemark","North":"","South":"Deutschland","East":"","West":"","Item1":"Lakritz","Item2":"Softeis"},
+    {"Name":"Deutschland","North":"Daenemark","South":"Italien","East":"Russland","West":"Frankreich","Item1":"Bier","Item2":"Brezel"},
     {"Name":"Frankreich","North":"","South":"Spanien","East":"Deutschland","West":"","Item1":"Baguette","Item2":"Wein"},
     {"Name":"Russland","North":"","South":"","East":"","West":"Deutschland","Item1":"Wodka","Item2":"Matrjoschka"},
     {"Name":"Italien","North":"Deutschland","South":"","East":"","West":"Spanien","Item1":"Pizza","Item2":"Espresso"},

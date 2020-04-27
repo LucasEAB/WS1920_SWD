@@ -19,10 +19,7 @@ namespace TextAdventure
             {
                 Position.Entry(this);
             }
-            catch
-            {
-                Console.WriteLine("");
-            }
+            catch{}
         }
 
         public void Inventory()

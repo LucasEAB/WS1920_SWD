@@ -12,11 +12,8 @@ namespace TextAdventure
     {
         public Player Player;
         public List<Room> Rooms = new List<Room>();
-
-        public static List<Enemy> enemieshelp = new List<Enemy>();
-
         public List<Enemy> Enemies = new List<Enemy>();
-        
+
 
         public void BuildGame()
         {
@@ -106,7 +103,7 @@ namespace TextAdventure
             //Set room items
             Player = new Player("Spieler", Rooms[RandomRoom()]);
 
-
+            List<Enemy> enemieshelp = new List<Enemy>();
             var data = File.ReadAllText("enemies.json");
             enemieshelp = JsonConvert.DeserializeObject<List<Enemy>>(data); // !!!! hier kann er enemies nicht als typ Enemy im Constructor erzeugen
 
@@ -161,7 +158,7 @@ namespace TextAdventure
                     {
                         int _x = RandomMove();
                         _randomDirection = _directions[_x];
-                        Enemy.Move(_randomDirection);          
+                        Enemy.Move(_randomDirection);
                     }
                 }
 
@@ -222,15 +219,23 @@ namespace TextAdventure
                     Console.WriteLine("Sie haben verloren");
                     break;
                 }
-                foreach (Enemy enemy in enemieshelp)
+
+                int enemiesCount = Enemies.Count();
+                int enemiesDead = 0;
+
+                foreach (Enemy enemy in Enemies)
                 {
-                    if (enemy.Total <= 0 && enemy.Total <= 0)
+                    if (enemy.Total <= 0)
                     {
-                        Console.WriteLine("Sie haben gewonnen");
-                        break;
+                        enemiesDead++;
                     }
                 }
 
+                if (enemiesCount == enemiesDead)
+                {
+                    Console.WriteLine("!!! Sie haben alle Gegner besiegt und somit das Spiel gewonnen !!!");
+                    break;
+                }
             }
 
             void Show(Player p)
