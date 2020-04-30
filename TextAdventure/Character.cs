@@ -8,7 +8,7 @@ namespace TextAdventure
     {
         public int Total = 100;
         public string Name;
-        public List<Item> PlayerItems = new List<Item>();
+        public List<Item> Items = new List<Item>();
         public Room Position;
 
         public Character(string _name, Room _position) //constructor
@@ -19,31 +19,34 @@ namespace TextAdventure
             {
                 Position.Entry(this);
             }
-            catch{}
+            catch
+            {
+
+            }
         }
 
         public void Inventory()
         {
-            for (int i = 0; i < PlayerItems.Count; i++)
+            for (int i = 0; i < Items.Count; i++)
             {
-                Console.WriteLine("Ihr Item: " + PlayerItems[i].Name);
+                Console.WriteLine("Ihr Item: " + Items[i].Name);
             }
         }
 
         public void Insert(Item item)
         {
-            PlayerItems.Add(item);
+            Items.Add(item);
         }
 
         public Item Delete(string item)
         {
             Item _drop = null;
-            for (int i = 0; i < PlayerItems.Count; i++)
+            for (int i = 0; i < Items.Count; i++)
             {
-                if (PlayerItems[i].Name == item)
+                if (Items[i].Name == item)
                 {
-                    _drop = PlayerItems[i];
-                    PlayerItems.Remove(PlayerItems[i]);
+                    _drop = Items[i];
+                    Items.Remove(Items[i]);
                 }
             }
             return _drop;
@@ -53,7 +56,7 @@ namespace TextAdventure
         {
             Room _newRoom;
             Room _oldRoom = Position;
-            Boolean Occupied = false;
+            Boolean _occupied = false;
 
             switch (input)
             {
@@ -79,7 +82,8 @@ namespace TextAdventure
             {
                 if (this.GetType() == typeof(Player)) //only player
                 {
-                    Console.WriteLine(this.Name + ": Diesen Weg gibt es nicht. Ihr Kontostand hat sich um 5 Euro reduziert");
+                    Console.WriteLine("");
+                    Console.WriteLine("Diesen Weg gibt es nicht. Ihre lebenspunkte haben sich um 5 reduziert");
                     this.Total -= 5;
                 }
             }
@@ -87,11 +91,11 @@ namespace TextAdventure
             {
                 try
                 {
-                    Occupied = _newRoom.EnemyInRoom();
+                    _occupied = _newRoom.EnemyInRoom();
                 }
                 catch
                 {
-                    Occupied = false;
+                    _occupied = false;
                 }
 
                 if (this.GetType() == typeof(Player) && _newRoom != Position)
@@ -99,10 +103,11 @@ namespace TextAdventure
                     Position = _newRoom;
                     _oldRoom.Exit(this);
                     _newRoom.Entry(this);
-                    Console.WriteLine(this.Name + ": ging von " + _oldRoom.Name + " nach " + _newRoom.Name);
+                    Console.WriteLine("");
+                    Console.WriteLine("Sie gingen von " + _oldRoom.Name + " nach " + _newRoom.Name);
                 }
 
-                if (this.GetType() == typeof(Enemy) && _newRoom != Position && Occupied != true)
+                if (this.GetType() == typeof(Enemy) && _newRoom != Position && _occupied != true)
                 {
                     Position = _newRoom;
                     _oldRoom.Exit(this);

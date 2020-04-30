@@ -28,7 +28,7 @@ namespace TextAdventure
         {
             int _reduce = MyRandomTotal();
             Total = Total - _reduce;
-            int _myreduce = _reduce;
+            int _myReduce = _reduce;
             Console.WriteLine("Ihr Kontostand hat sich um " + _reduce + " Euro verringert.");
 
             Enemy enemy = Position.GetEnemy();
@@ -37,7 +37,13 @@ namespace TextAdventure
             enemy.Total -= _reduce;
 
             Console.WriteLine("Der Kontostand von deinem Gegner hat sich um " + _reduce + " Euro verringert.");
-            if (enemy.Total > 0 && _myreduce < _enemyReduce)
+            
+            if (_myReduce > _enemyReduce)
+            {
+                Console.WriteLine("Sie haben gegen " + enemy.Name + " verloren .");
+
+            }
+            if (enemy.Total > 0 && _myReduce < _enemyReduce)
             {
                 Console.WriteLine("Sie haben das Duell gegen " + enemy.Name + " gewonnen. Sie können nun ein Item von " + enemy.Name + " hinzufügen indem Sie den Namen des Items eingeben.");
                 TakeEnemyItems();
@@ -53,13 +59,13 @@ namespace TextAdventure
             string _item = Console.ReadLine();
             Item _take = null;
             Enemy _enemy = null;
-            for (int i = 0; i < Position.GetEnemy().PlayerItems.Count; i++)
+            for (int i = 0; i < Position.GetEnemy().Items.Count; i++)
             {
                 _enemy = Position.GetEnemy();
-                if (_enemy.PlayerItems[i].Name == _item)
+                if (_enemy.Items[i].Name == _item)
                 {
-                    _take = _enemy.PlayerItems[i];
-                    _enemy.PlayerItems.Remove(_take);
+                    _take = _enemy.Items[i];
+                    _enemy.Items.Remove(_take);
                     Insert(_take);
 
                     Console.WriteLine("Sie haben " + _item + " erfolgreich hinzugefügt.");

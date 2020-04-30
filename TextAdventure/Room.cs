@@ -13,8 +13,6 @@ namespace TextAdventure
         public Room South;
         public Room West;
         public Room East;
-        public Boolean Occupied = false;
-
 
         public void Exit(Character character)
         {
@@ -32,10 +30,10 @@ namespace TextAdventure
             {
                 if (Characters[i].GetType() == typeof(Enemy))
                 {
-                    return Occupied = true;
+                    return true;
                 }
             }
-            return Occupied = false;
+            return false;
         }
 
         public Enemy GetEnemy() // get data from enemy 
@@ -76,12 +74,13 @@ namespace TextAdventure
 
         public void Look()
         {
+            Console.WriteLine("");
             Console.WriteLine("Hier liegen " + Items.Count + " Items. Geben Sie take(t) ein und anschließend den Namen des Items, um eins in Ihr Inventar einzufügen.");
             Console.WriteLine("Hier liegen folgende Items: ");
 
             for (int i = 0; i < Items.Count; i++)
             {
-                Console.WriteLine(Items[i].Name);
+                Console.WriteLine("- " + Items[i].Name);
             }
         }
     }
