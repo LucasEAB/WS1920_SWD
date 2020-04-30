@@ -6,7 +6,7 @@
                 "Name": "Deutschland"
             }
         ,
-        "PlayerItems": [
+        "Items": [
             {
                 "Name": "Kartoffel"
             },
@@ -22,7 +22,7 @@
                 "Name": "Italien"
             }
         ,
-        "PlayerItems":[
+        "Items":[
             {
                 "Name": "pistole"
             },
